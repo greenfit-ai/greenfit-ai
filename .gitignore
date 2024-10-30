@@ -1,0 +1,8 @@
+# venv
+streamlit-app/
+
+# cache
+scripts/__pycache__/
+
+# misc
+.env
