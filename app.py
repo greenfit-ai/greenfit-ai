@@ -1,13 +1,13 @@
 import streamlit as st
-from utils import web_search, run_inference
+from scripts.utils import web_search, run_inference
 
 def reply(query: str, num_results: int):
     res = web_search(query, num_results)
     return res
 
-st.set_page_config(page_title="Beans AI", page_icon="🫘")
+st.set_page_config(page_title="Beans AI", page_icon="🌱")
 # Title of the web app
-st.title("Beans AI🫘")
+st.title("Beans AI🌱")
 st.subheader("Find out about sustainability in your favorite sport clothing brands, in just one click!")
 # Input text box for the search query
 query = st.text_input("Describe what products you would like to explore:")

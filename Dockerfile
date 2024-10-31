@@ -2,7 +2,7 @@ FROM python:3.11.9-slim-bookworm
 
 WORKDIR /app
 ADD . /app
-COPY ./.env /app/
+COPY ./.streamlit/secrets.toml /app/.streamlit/
 
 RUN apt update && apt install -y gcc g++
 

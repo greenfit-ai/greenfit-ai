@@ -3,12 +3,7 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.pydantic_v1 import Field, BaseModel
 from qdrant_client import QdrantClient
-from dotenv import load_dotenv
-import os
-
-
-
-load_dotenv()
+from .secretsStreamlit import openai_api_key, rapid_api_key, qdrant_api_key, qdrant_url
 
 class SearchOptim(BaseModel):
     """Structure of the output for browser search optimization"""
@@ -51,9 +46,6 @@ class NeuralSearcher:
         """
         return retrieved_context
 
-
-openai_api_key = os.getenv("openai_api_key")
-rapid_api_key = os.getenv("rapid_api_key")
 base_llm = ChatOpenAI(api_key=openai_api_key, model="gpt-4o-mini")
 base_prompt = ChatPromptTemplate.from_messages(
   [
@@ -88,7 +80,7 @@ sustain_prompt = ChatPromptTemplate.from_messages(
 )
 sustain_chain = sustain_prompt | base_llm.with_structured_output(SustainEval)
 embedder = OpenAIEmbeddings(model="text-embedding-3-small", api_key=openai_api_key)
-qdrant_client = QdrantClient(url=os.getenv("qdrant_url"), api_key=os.getenv("qdrant_api_key"))
+qdrant_client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key)
 searcher = NeuralSearcher("fashiondata", qdrant_client, embedder)
 
 def remove_items(test_list, item): 
