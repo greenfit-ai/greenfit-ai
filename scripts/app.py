@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import web_search
+from utils import web_search, run_inference
 
 def reply(query: str, num_results: int):
     res = web_search(query, num_results)
@@ -19,7 +19,8 @@ num_results = st.number_input("Number of results to display:", min_value=1, max_
 if st.button("Search"):
     if query:
         results = reply(query, num_results)
+        res_true = run_inference(results)
         st.write(f"## Your results:")
-        st.write_stream(results)
+        st.write_stream(res_true)
     else:
         st.write("Please enter a search term.")
