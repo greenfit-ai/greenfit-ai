@@ -50,6 +50,8 @@ jobs:
           echo "openai_api_key=${{ secrets.OPENAI_API_KEY }}" >> .streamlit/secrets.toml
           echo "qdrant_api_key=${{ secrets.QDRANT_API_KEY }}" >> .streamlit/secrets.toml
           echo "qdrant_url=${{ secrets.QDRANT_URL }}" >> .streamlit/secrets.toml
+          echo "supa_key=${{ secrets.SUPA_KEY }}" >> .streamlit/secrets.toml
+          echo "supa_url=${{ secrets.SUPA_URL }}" >> .streamlit/secrets.toml
           echo "courier_auth_token=${{ secrets.COURIER_AUTH_TOKEN }}" >> .streamlit/secrets.toml
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
