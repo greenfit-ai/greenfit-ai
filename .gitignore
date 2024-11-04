@@ -3,7 +3,6 @@ streamlit-app/
 
 # cache
 scripts/__pycache__/
-streamlit_login_auth_ui/__pycache__/
 
 # misc
 .env
