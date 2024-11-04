@@ -19,6 +19,23 @@ class PasswordHasher:
 ph = PasswordHasher() 
 supabase: Client = create_client(supabase_url=supa_url, supabase_key=supa_key)
 
+def welcome_w_email(auth_token: str, username_forgot_passwd: str, email_forgot_passwd: str, company_name: str) -> None:
+    """
+    Triggers an email to the user containing the randomly generated password.
+    """
+    client = Courier(authorization_token = auth_token)
+    resp = client.send(
+    message={
+        "to": {
+        "email": email_forgot_passwd
+        },
+        "content": {
+        "title": company_name + ": Login Password!",
+        "body": "Hi! " + username_forgot_passwd + "," + "\n" + "\n" + f"With this email, we are glad to welcome you to {company_name} "
+        },
+    }
+    )
+
 def check_usr_pass(username: str, password: str) -> bool:
     """
     Authenticates the username and password.
@@ -70,7 +87,6 @@ def check_unique_email(email_sign_up: str) -> bool:
     """
     query = supabase.from_("user_authentication").select("email").execute()
     authorized_user_data_master = [datum["email"] for datum in query.data]
-    print(authorized_user_data_master)
     if email_sign_up in authorized_user_data_master:
         return False
     return True

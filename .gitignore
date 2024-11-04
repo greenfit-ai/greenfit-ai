@@ -8,3 +8,4 @@ streamlit_login_auth_ui/__pycache__/
 # misc
 .env
 .streamlit/secrets.toml
+streamlit_login_auth_ui/

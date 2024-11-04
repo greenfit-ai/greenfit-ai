@@ -12,4 +12,4 @@ RUN python3 -m pip install --no-cache-dir -r requirements.txt
 EXPOSE 8501
 
 ENTRYPOINT [ "streamlit", "run" ]
-CMD [ "scripts/app.py" ]
+CMD [ "app.py" ]

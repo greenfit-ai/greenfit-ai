@@ -14,6 +14,7 @@ from .utils import generate_random_passwd
 from .utils import send_passwd_in_email
 from .utils import change_passwd
 from .utils import check_current_passwd
+from .utils import welcome_w_email
 
 
 class __login__:
@@ -139,6 +140,7 @@ class __login__:
                         if unique_email_check == True:
                             if unique_username_check == True:
                                 register_new_usr(name_sign_up, email_sign_up, username_sign_up, password_sign_up)
+                                welcome_w_email(self.auth_token, username_sign_up, email_sign_up, self.company_name)
                                 st.success("Registration Successful!")
 
 

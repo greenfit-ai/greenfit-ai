@@ -1,7 +1,7 @@
 import streamlit as st
 from scripts.utils import web_search, run_inference
 from scripts.secretsStreamlit import courier_auth_token
-from streamlit_login_auth_ui.widgets import __login__
+from streamlit_supabase_auth_ui.widgets import __login__
 
 def reply(query: str, num_results: int):
     res = web_search(query, num_results)
