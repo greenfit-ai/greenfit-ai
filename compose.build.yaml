@@ -1,0 +1,9 @@
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - $STREAMLIT_SECRETS_PATH:/app/.streamlit/secrets.toml
+    ports:
+      - "8501:8501"

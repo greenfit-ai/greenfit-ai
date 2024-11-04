@@ -1,0 +1,7 @@
+services:
+  app:
+    image: ghcr.io/astrabert/beans-ai:main
+    volumes:
+      - $STREAMLIT_SECRETS_PATH:/app/.streamlit/secrets.toml
+    ports:
+      - "8501:8501"
