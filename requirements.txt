@@ -4,6 +4,6 @@ langchain-openai==0.2.4
 langchain-text-splitters==0.3.1
 langsmith==0.1.137
 qdrant-client==1.12.1
-requests==2.32.0
+requests==2.32.3
 streamlit==1.39.0
 streamlit-supabase-auth-ui==0.0.0.post2
