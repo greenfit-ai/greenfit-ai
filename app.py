@@ -8,7 +8,7 @@ def reply(query: str, num_results: int):
     return res
 
 __login__obj = __login__(auth_token = courier_auth_token, 
-                    company_name = "Beans AI🌱",
+                    company_name = "GreenFit AI🌱",
                     width = 200, height = 250, 
                     logout_button_name = 'Logout', hide_menu_bool = False, 
                     hide_footer_bool = False, 
@@ -19,7 +19,7 @@ LOGGED_IN = __login__obj.build_login_ui()
 
 if LOGGED_IN == True:
     # Title of the web app
-    st.title("Beans AI🌱")
+    st.title("GreenFit AI🌱")
     st.subheader("Find out about sustainability in your favorite sport clothing brands, in just one click!")
     # Input text box for the search query
     query = st.text_input("Describe what products you would like to explore:")
