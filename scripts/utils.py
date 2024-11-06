@@ -124,15 +124,18 @@ def grade_to_markdown_color(grade: int):
     return mdcode
 
 
-
 def run_inference(product_strings):
     final_strings = []
     for product_string in product_strings:
         context = searcher.search(product_string)
         res = sustain_chain.invoke({"message": f"This is the product you should evaluate:\n\n{product_string}", "context": context})
         final_res = f"{product_string}\n\n#### Sustainability evaluation\n{grade_to_markdown_color(res.low_c_mat_grade)} **Low carbon materials usage**: {res.low_c_mat_des}\n\n{grade_to_markdown_color(res.ren_en_grade)} **Renewable energies usage**: {res.ren_en_des}\n\n{grade_to_markdown_color(res.overall_grade)} **Overall sustainability**: {res.overall_des}\n\n-------------------------------------\n\n"
-        final_strings.append(final_res)
-    for final_string in final_strings:
+        final_strings.append({"text": final_res, "grade": res.low_c_mat_grade + res.ren_en_grade + res.overall_grade})
+    sorted_list = sorted(final_strings, key=lambda x: x["grade"], reverse=True)
+
+    final_list = [string["text"] for string in sorted_list]
+
+    for final_string in final_list:
         yield final_string
         
 
