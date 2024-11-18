@@ -6,4 +6,4 @@ langsmith==0.1.137
 qdrant-client==1.12.1
 requests==2.32.3
 streamlit==1.39.0
-streamlit-supabase-auth-ui==0.0.0.post2
+streamlit-supabase-auth-ui==0.0.1.post4

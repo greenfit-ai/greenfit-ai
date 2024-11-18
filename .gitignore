@@ -1,5 +1,5 @@
 # venv
-streamlit-app/
+virtualenv/
 
 # cache
 scripts/__pycache__/
@@ -8,3 +8,5 @@ scripts/__pycache__/
 .env
 .streamlit/secrets.toml
 streamlit_login_auth_ui/
+.secrets.emails
+example_response.json
