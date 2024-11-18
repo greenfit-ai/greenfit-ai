@@ -107,9 +107,10 @@ def web_search(user_req: str, limit: int):
 
     resdict = response.json()
     data = resdict["data"]["products"]
+    print(data)
     # product_title, product_description, product_photos[0], product_page_url 
-    products_list = [[d["product_title"], d["product_description"], d["product_photos"][0], d["product_page_url"]] for d in data]
-    proudcts_strings = [f"### [{product[0]}]({product[3]})\n\n![Product image]({product[2]})\n\n#### Description\n{product[1]}" for product in products_list]
+    products_list = [[d["product_title"], d["product_description"], d["product_photos"][0], d["product_page_url"], d["offer"]["price"], d["offer"]["offer_page_url"]] for d in data]
+    proudcts_strings = [f"### [{product[0]}]({product[3]})\n\n#### Price: [{product[4]}]({product[5]}) (convert [to EUR](https://www.oanda.com/currency-converter/en/?from=USD&to=EUR&amount={product[4].replace('$','')}))\n\n![Product image]({product[2]})\n\n#### Description\n{product[1]}" for product in products_list]
     return proudcts_strings
 
 def grade_to_markdown_color(grade: int):
@@ -129,7 +130,7 @@ def run_inference(product_strings):
     for product_string in product_strings:
         context = searcher.search(product_string)
         res = sustain_chain.invoke({"message": f"This is the product you should evaluate:\n\n{product_string}", "context": context})
-        final_res = f"{product_string}\n\n#### Sustainability evaluation\n{grade_to_markdown_color(res.low_c_mat_grade)} **Low carbon materials usage**: {res.low_c_mat_des}\n\n{grade_to_markdown_color(res.ren_en_grade)} **Renewable energies usage**: {res.ren_en_des}\n\n{grade_to_markdown_color(res.overall_grade)} **Overall sustainability**: {res.overall_des}\n\n-------------------------------------\n\n"
+        final_res = f"{product_string}\n\n#### Sustainability evaluation\n{grade_to_markdown_color(res.low_c_mat_grade)} **Low carbon materials usage - {res.low_c_mat_grade}/10**: {res.low_c_mat_des}\n\n{grade_to_markdown_color(res.ren_en_grade)} **Renewable energies usage - {res.ren_en_grade}/10**: {res.ren_en_des}\n\n{grade_to_markdown_color(res.overall_grade)} **Overall sustainability - {res.overall_grade}/10**: {res.overall_des}\n\n-------------------------------------\n\n"
         final_strings.append({"text": final_res, "grade": res.low_c_mat_grade + res.ren_en_grade + res.overall_grade})
     sorted_list = sorted(final_strings, key=lambda x: x["grade"], reverse=True)
 
