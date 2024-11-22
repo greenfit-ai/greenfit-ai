@@ -6,8 +6,8 @@
     <img src="https://img.shields.io/github/languages/top/AstraBert/greenfit-ai" alt="GitHub top language">
    <img src="https://img.shields.io/github/commit-activity/t/AstraBert/greenfit-ai" alt="GitHub commit activity">
    <img src="https://img.shields.io/badge/greenfit_ai-beta-green" alt="Static Badge">
-   <img src="https://img.shields.io/github/license/AstraBert/greenfit-ai" alt="License">
-   <img src="https://github.com/AstraBert/greenfit-ai/actions/workflows/docker-publish.yml/badge.svg" alt="Docker deployment status">
+   <img src="https://img.shields.io/github/license/greenfit-ai/greenfit-ai" alt="License">
+   <img src="https://github.com/greenfit-ai/greenfit-ai/actions/workflows/docker-publish.yml/badge.svg" alt="Docker deployment status">
    <br>
    <br>
    <div>
@@ -17,7 +17,7 @@
 
 ### For users
 
-Go to [our Streamlit webapp](https://greenfit-ai.streamlit.app) and get a hands-on experience of GreenFit AI!
+Go to [our Streamlit **demo** webapp](https://huggingface.co/spaces/greenfit-ai/greenfit-ai) and get a hands-on experience of GreenFit AI!
 
 Otherwise, head over to our [product showcase website](https://astrabert.github.io/greenfitai-showcase/) and feel free to explore the product from there
 
