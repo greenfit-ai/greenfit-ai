@@ -17,7 +17,7 @@
 
 ### For users
 
-Go to [our Streamlit webapp](https://greenfit-ai.streamlit.app) and get a hands-on experience of GreenFit AI!
+Go to [our Streamlit **demo** webapp](https://huggingface.co/spaces/greenfit-ai/greenfit-ai) and get a hands-on experience of GreenFit AI!
 
 Otherwise, head over to our [product showcase website](https://astrabert.github.io/greenfitai-showcase/) and feel free to explore the product from there
 
