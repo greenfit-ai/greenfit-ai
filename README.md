@@ -6,8 +6,8 @@
     <img src="https://img.shields.io/github/languages/top/AstraBert/greenfit-ai" alt="GitHub top language">
    <img src="https://img.shields.io/github/commit-activity/t/AstraBert/greenfit-ai" alt="GitHub commit activity">
    <img src="https://img.shields.io/badge/greenfit_ai-beta-green" alt="Static Badge">
-   <img src="https://img.shields.io/github/license/AstraBert/greenfit-ai" alt="License">
-   <img src="https://github.com/AstraBert/greenfit-ai/actions/workflows/docker-publish.yml/badge.svg" alt="Docker deployment status">
+   <img src="https://img.shields.io/github/license/greenfit-ai/greenfit-ai" alt="License">
+   <img src="https://github.com/greenfit-ai/greenfit-ai/actions/workflows/docker-publish.yml/badge.svg" alt="Docker deployment status">
    <br>
    <br>
    <div>
